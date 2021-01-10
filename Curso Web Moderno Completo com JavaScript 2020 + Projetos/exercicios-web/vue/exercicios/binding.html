@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+
+<body class="exercicio">
+    <div id="app">
+        <p>{{link}}</p>
+        <p><a href="{{link}}">Canal?</a></p>
+        <!-- adicicinar um valor href de data -->
+        <p><a v-bind:href="link">Canal</a></p>
+        <!-- mesma cisa da de cima reduzida -->
+        <p><a :href="link">Canal</a></p>
+        <p>
+            <!-- v-model pega o valor de nome e ao mesmo tempo permite alteralo (nesse caso qud se escreve no campo input) -->
+            <input type="text" v-model="nome"><br>
+            <span>{{nome}}</span>
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nome: "Maria",
+                link: "https://youtube.com/cod3rcursos"
+            },
+            watch: {
+                nome(novovalor) {
+                    console.log(novovalor.toUpperCase())
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

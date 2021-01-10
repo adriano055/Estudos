@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>
+        /* nesse caso usa o # para selecionar uma id porque
+        ele pode ser usado pra selecionar varias coisas */
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        /* querySelectorAll retorna uma nodelist,
+        possui a funcao foreach, mas algumas outras
+        de array nao estao desponiveis */
+        const selecionar = seletor => document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+
+        const deselecionar = seletor => document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        selecionar('div')
+
+        /* seletor universal (todos) */
+        deselecionar('*')
+
+        /* possuir a classe terceiro e ultimo ao mesmo tempo */
+        selecionar('.terceiro.ultimo')
+
+        deselecionar('*')
+        selecionar(':not(#primeiro)')
+
+        deselecionar('*')
+        selecionar(':nth-child(1)')
+
+        deselecionar('*')
+        /* primeiro elemento do tipo div */
+        selecionar('div:nth-of-type(1)')
+
+        deselecionar('*')
+        /*atraves de um atributo*/
+        selecionar('[wb-attrib]')
+    </script>
+</body>
+
+</html>

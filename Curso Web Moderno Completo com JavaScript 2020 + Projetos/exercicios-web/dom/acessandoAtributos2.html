@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"............')
+        console.log('childNodes', lista.childNodes)
+        /*lista.destino nao funciona pois, pois
+        destino foi um atributo criado, nao reconhecido
+        automaticamente pelo navegador*/
+        console.log('destino', lista.destino)
+        /*resolve o problema anterior*/
+        console.log('getAttribute', lista.getAttribute('destino'))
+        console.log('hasAttribute', lista.hasAttribute('destino'))
+        /*modificar um atributo*/
+        lista.setAttribute('destino', 'empresa')
+        /*da mesma forma pode criar um atributo*/
+        lista.setAttribute('status', 'aberto')
+        lista.removeAttribute('destino')
+        /*uma forma padrao para usar atributos
+        personalisados é data-atributo, dataset
+        pega todos atributos nesse padrao*/
+        console.log(lista.dataset)
+        /*tambem é possivel editar os atributos
+        desse padrao*/
+        lista.dataset.urgencia = 4
+
+        // cuidado
+
+        const label = document.querySelector('label')
+        //for é reservado
+        console.log(label.for)
+        //usa-se htmlFor
+        console.log(label.htmlFor)
+        //ou
+        console.log(label.getAttribute('for'))
+    </script>
+</body>
+
+</html>

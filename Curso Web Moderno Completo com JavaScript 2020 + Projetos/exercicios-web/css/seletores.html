@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        section > span:nth-of-type(2) {
+            color: #ff0;
+            background-color: #f77;
+        }
+        /* * pega TUDO */
+        /* .tag - pega class='tag'  */
+        /* #aprovados - pega id='aprovados' */
+        /* #aninhado > div - pega a(s) div que esta dentro(somente uma camada) da que possui id='aprovados' */
+        /* #aninhado section - pega a(s) section que esta dentro(qualquer camada, dentro de dentro de dentro...) da que possui id='aninhado' */
+        /* p + ul - pega a ul que esta abaixo(na msm camada) de p*/
+        /* p ~ ol - pega a ol que esta na msm camada de um p anterior tbm na msm camada*/
+        /* [feira] - pega a tag que possui o atributo feira*/
+        /* [feira=casa] - pega a tag que possui o atributo feira com valor = 'casa' */
+        /* [feira~=escritorio] - contenha a palavra escritorio entre espaços ex: 'escritorio empresa' */
+        /* [feira*asa] - contenha asa dentro do valor (msm no meio de uma palavra) ex: 'casa'*/
+        /* [feira] - pega a tag que possui o atributo feira*/
+        /* span:nth-child(1) - pega o primeiro filho de alguem que seja um span */
+        /* section > :nth-child(odd) - pega os filhos impares de section*/
+        /* section > :nth-child(even) - pega os filhos pares de section*/
+        /* section > :nth-child(even) - pega os filhos pares de section*/
+        /* p, ul, ol - pega tanto p, como ul e ol*/
+        /* section > :nth-child(odd) label - pega o label de(filhos impares de section*) */
+        /* section > span:nth-of-type(2) - pega o segundo elemento to tipo span dentro de section */
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag nolabel'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

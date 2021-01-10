@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #02</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /* ordem maior, item fica por ultimo */
+            order: 1;
+            /* ordem padrao */
+            order: 0;
+            /* ordem menor, item fica primeiro */
+            order: -1;
+            /* redimenciona a caixa em funcao do item de dentro e alinha no centro */
+            align-self: center;
+            /* alinha no fim */
+            align-self: flex-end;
+            /*alinha no inicio */
+            align-self: flex-start;
+            /* volta para o padrao onde a caixa se espande em funcao da pai */
+            align-self: stretch;
+        }
+
+        .flex-container div {
+            width: 100px;
+            /* alarga com base no espaço restante de acordo com o peso */
+            flex-grow: 0;
+            flex-grow: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+            flex-shrink: 5;
+        }
+
+        .flex-container {
+            width: 300px;
+            /* em caso dos itens serem encolhidos qud a 
+            classe pai é menor que a soma dos itens,
+            a caixa é encolhida de acordo com o peso
+             */
+            flex-shrink: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

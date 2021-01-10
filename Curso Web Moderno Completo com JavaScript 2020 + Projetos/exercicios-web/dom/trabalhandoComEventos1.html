@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- onclick="navegarEm5s(event)" -->
+        <a espera-um-pouco href="https://google.com.br" </a>>Google</a>
+    </div>
+    <script>
+        /* fo adicionado na tag <a>
+        onclick="navegarEm5s(event)"  
+        event é o evento no html*/
+        function navegarEm5s(e) {
+            // parar o evento do click
+            e.preventDefault()
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                const link = e.target
+                window.location.href = link.href
+            }, 5000)
+        }
+
+        //outra forma de add a funcao a tag
+        //const a = document.querySelector('a')
+        //a.onclick = navegarEm5s
+
+        /* usando atrib personalisados add a tag 
+        é melhor organizado, se imagina que tem 
+        uma funcao associada*/
+        //foi add o atrib espera-um-pouco a tag
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
+    </script>
+</body>

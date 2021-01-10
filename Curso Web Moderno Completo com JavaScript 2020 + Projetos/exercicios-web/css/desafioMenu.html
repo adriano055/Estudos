@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0px;
+            background-color: lightgray;
+        }
+
+        .cabecalho {
+            position: relative;
+            background-color: black;
+            display: flex;
+            height: 55px;
+            border-bottom: 4px solid cornflowerblue;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        img {
+            height: 40px;
+        }
+
+        .menu-toggle {
+            display: none;
+            margin: 10px 30px 10px auto;
+            width: 50px;
+            background-color: gray;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .menu-toggle>i {
+            color: white;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        li>a {
+            color: white;
+            margin-left: 8px;
+            margin-right: 8px;
+            text-decoration: none;
+            padding: 12px 10px;
+            font-family: Oswald;
+        }
+
+        .menu a:hover,
+        .menu a.selected {
+            background-color: cornflowerblue;
+            color: black;
+        }
+
+        .autenticacao {
+            margin-left: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 20px;
+        }
+
+        .autenticacao>a {
+            color: white;
+            text-decoration: none;
+            font-family: Oswald;
+            padding: 10px;
+        }
+
+        img {
+            pointer-events: none;
+        }
+
+        .autenticacao>a:nth-of-type(2) {
+            border-radius: 25px;
+            background-color: red;
+            width: 85px;
+            text-align: center;
+        }
+
+        @media (max-width: 720px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        let botoes = document.querySelectorAll("li > a")
+
+        function removeHash() {
+            for (let i = 0; i < botoes.length; i++) {
+                botoes[i].classList.remove('selected')
+            }
+        }
+
+        document.onclick = function (event) {
+            let hash = event.target.hash
+
+            let inList = false
+            for (let i = 0; i < botoes.length; i++) {
+                if (botoes[i].hash == hash) {
+                    removeHash()
+                    botoes[i].classList.add("selected")
+                    inList = true
+                    break
+                }
+            }
+
+            if (!inList) {
+                if (hash != undefined) {
+                    removeHash()
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>
