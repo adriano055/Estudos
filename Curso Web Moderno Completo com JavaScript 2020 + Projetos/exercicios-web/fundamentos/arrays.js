@@ -6,7 +6,7 @@ valores[4] = 10
 console.log(valores)
 console.log(valores.length) //sem () array como objeto
 
-valores.push({id: 3}, false, null, 'teste')
+valores.push({ id: 3 }, false, null, 'teste')
 console.log(valores)
 
 console.log(valores.pop()) //pega o ultimo e o remove
@@ -16,6 +16,6 @@ delete valores[0]
 
 console.log(valores)
 
-const t = t[1+valores.length()]
+const t = t[1 + valores.length()]
 
 console.log(t)
